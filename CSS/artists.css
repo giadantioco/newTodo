@@ -1,0 +1,36 @@
+.sub-title {
+    text-align: center;
+    font-size: 40px;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.fav-artist {
+    /* border: 10px solid pink; */
+    width: 100%;
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .box {
+    /* border: 10px solid green; */
+    text-align: center;
+  }
+  
+  .box-container {
+    /* border: 10px solid red; */
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    overflow: hidden;
+  }
+  
+  .artist-pic {
+    border-radius: 50%;
+  }
+  
