@@ -50,8 +50,8 @@ const renderSrcBar = () => {
         console.log('Search value:', searchValue);
         const filteredArtists = artists.filter(artist => artist.name.toLowerCase
         ().includes(searchValue))
-
         console.log('Filtered artists:', filteredArtists);
+        
         renderListBox(filteredArtists)
 
     })
