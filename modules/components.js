@@ -7,9 +7,12 @@
 
 */
 
+
+
 // const cEl = (element) => {
-//     document.createElement(element) -> non capisco perche se assegnata ad elementi di boxelgen non funziona 
+//     document.createElement(element) -> non capisco perche se assegnata ad elementi di boxelgen NON FUNZIONA
 // }
+
 
 // crea singolo elemento
 const boxElGen = (obj) => {
@@ -47,19 +50,46 @@ const boxListGen = () => {
 }
 
 // crea bottoni 
-const buttonGen = (text, id) => {
+const buttonGen = (name) => {
     const button = document.createElement('button')
     
-    button.textContent = text; 
-    button.id = id;
+    button.textContent = name; 
+    button.id = name.toLowerCase();
 
     return button
+}
+
+// creo searchbar
+{/* <form>
+    <div class=”search-box”>
+        <input type=”text” class=”search-by-name” name=”name” placeholder=”Search”>
+        <button class=”search-btn” type=”submit”>Search</button>
+    </div>
+</form> */}
+
+const searchBarEl = (e) => {
+
+    console.log(e)
+
+    const formEl = document.createElement('form')
+    const divEl = document.createElement('div')
+    const inputEl = document.createElement('input')
+    const buttonEl = document.createElement('button')
+
+    divEl.className = 'search-box';
+    inputEl.className = 'search-by-name'
+    inputEl.name = e.name.toLowerCase()
+    buttonEl.className = 'search-btn'
+
+    formEl.append(divEl, inputEl, buttonEl)
+    return formEl
 }
 
 export {
     boxElGen,
     boxListGen,
     buttonGen,
+    searchBarEl
 }
 
 
