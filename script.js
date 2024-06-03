@@ -9,6 +9,7 @@ const renderListForType = () => {
 
     artistTypes.forEach(type => {
         const btnType = buttonGen(type)
+        navEl.append(btnType)
         // console.log(type)
 
         // qui appendo buttonGen fcn
@@ -18,10 +19,45 @@ const renderListForType = () => {
             //qui appendo la funzione carte filtrate e passo array
             renderListBox(newArray)
         })
-        navEl.append(btnType)
+        
         // console.log(btnType)
     })
 }
+
+// reset btn
+const renderResetBtn = () => {
+
+    const btnReset = buttonGen('Reset')
+    navEl.append(btnReset)
+    // console.log(btnReset)
+    btnReset.addEventListener('click', function () {
+
+        renderListBox(artists)
+    })
+
+}
+
+// search bar 
+
+const renderSrcBar = () => {
+
+    const searchBar = searchBarEl()
+    navEl.append(searchBar)
+
+    searchBar.addEventListener('input', function() {
+        console.log('Search bar input event triggered');
+        const searchValue = searchBar.value.toLowerCase()
+        console.log('Search value:', searchValue);
+        const filteredArtists = artists.filter(artist => artist.name.toLowerCase
+        ().includes(searchValue))
+
+        console.log('Filtered artists:', filteredArtists);
+        renderListBox(filteredArtists)
+
+    })
+
+}
+
 
 //  cards filtrate ->
 const renderListBox = (newArray) => {
@@ -32,7 +68,7 @@ const renderListBox = (newArray) => {
 
     newArray.forEach( artist => {
         const boxEl = boxElGen(artist)
-        boxList.append(boxEl )
+        boxList.append(boxEl)
     })
     boxSectionEl.append(boxList)
     // console.log(boxList)
@@ -45,16 +81,15 @@ const boxList = boxListGen();
 artists.forEach(artist => {
     const boxEl = boxElGen(artist);
     boxList.append(boxEl);
-});
-
-boxSectionEl.append(boxList);
     
+});
+boxSectionEl.append(boxList);
 
-// for (let i = 0; i <= artists.length -1; i++) {
-//     const boxEl = boxElGen(artists[i]);
-//     boxList.append(boxEl);
-// }
 
-window.onload = boxSectionEl.append(boxList, renderListForType())
+window.onload = () => {
+    renderListForType(),
+    renderResetBtn(),
+    renderSrcBar()
+}
 
 

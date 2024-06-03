@@ -58,38 +58,39 @@ const buttonGen = (name) => {
 
     return button
 }
+// ----------------------------------------- searchbar start
 
-// creo searchbar
 {/* <form>
     <div class=”search-box”>
-        <input type=”text” class=”search-by-name” name=”name” placeholder=”Search”>
-        <button class=”search-btn” type=”submit”>Search</button>
+        <input type=”text” 
+        class=”search-by-name” 
+        name=”name” 
+        placeholder=”Search”>
     </div>
 </form> */}
 
-const searchBarEl = (e) => {
-
-    console.log(e)
+const searchBarEl = () => {
 
     const formEl = document.createElement('form')
-    const divEl = document.createElement('div')
     const inputEl = document.createElement('input')
-    const buttonEl = document.createElement('button')
 
-    divEl.className = 'search-box';
-    inputEl.className = 'search-by-name'
-    inputEl.name = e.name.toLowerCase()
-    buttonEl.className = 'search-btn'
+    inputEl.id = 'reset' 
+    inputEl.type = 'text'
+    inputEl.placeholder = 'Search artist...'
+    inputEl.className = 'search-bar'
 
-    formEl.append(divEl, inputEl, buttonEl)
+    formEl.append(inputEl)
     return formEl
 }
+// ----------------------------------------- searchbar end 
+
+
 
 export {
     boxElGen,
     boxListGen,
     buttonGen,
-    searchBarEl
+    searchBarEl,
 }
 
 
